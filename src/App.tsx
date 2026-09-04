@@ -13,9 +13,9 @@ function App() {
       </div>
 
       <br></br>
-      
+
       <div className="about-me-header">
-        <img src="" alt="Stan Gornicz" />
+        <img style={{height: '25vh'}} src="src/assets/headshot.png" alt="Stan Gornicz" />
         <h1>Stan Gornicz</h1>
       </div>
 
