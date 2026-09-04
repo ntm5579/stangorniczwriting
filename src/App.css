@@ -34,3 +34,18 @@
 .article .article-link:hover {
     text-decoration: underline;
 }
+
+.about-me-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    color: #fff;
+    background-color: #000;
+}
+
+.section {
+    height: 40%;
+    width: 100%;
+    background-color: gold;
+}

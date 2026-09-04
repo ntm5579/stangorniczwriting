@@ -5,13 +5,21 @@ function App() {
 
   return (
     <>
-      <Nav />
-      <img src="" alt="Type Writer" />
-      <div>
+      <Nav currentPage="/" />
+      <br></br>
+      <br></br>
+      <div className="section">
+        <img src="" alt="Type Writer" />
+      </div>
+
+      <br></br>
+      
+      <div className="about-me-header">
         <img src="" alt="Stan Gornicz" />
         <h1>Stan Gornicz</h1>
       </div>
-      <h1>About Me</h1>
+
+      <h1 style={{ justifyContent: 'center', display: 'flex' }}>About Me</h1>
       <p>
         I've been a writer my whole life. For most of my career, I've been a corporate writer.
         For the past decade and a half, I've crafted personal essays, which I've published in

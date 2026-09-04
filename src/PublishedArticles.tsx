@@ -5,7 +5,7 @@ import Article from './Components/Article.tsx'
 function PublishedArticles() {
     return (
         <>
-            <Nav />
+            <Nav currentPage="published-work" />
             <h1>Published Articles</h1>
             {articles.map((article, index) => (
                 <Article

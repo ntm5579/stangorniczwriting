@@ -2,12 +2,12 @@ class Article {
     image: string;
     title: string;
     blurb: string;
-    pdfLink: string;
-    externalLink: string;
+    pdfLink: string | null;
+    externalLink: string | null;
     publication: Publication;
     publicationDate: Date;
 
-    constructor(image: string, title: string, blurb: string, pdfLink: string, externalLink: string, publication: Publication, publicationDate: Date) {
+    constructor(image: string, title: string, blurb: string, pdfLink: string | null, externalLink: string | null, publication: Publication, publicationDate: Date) {
         this.image = image;
         this.title = title;
         this.blurb = blurb;
