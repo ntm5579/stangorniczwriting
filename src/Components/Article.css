@@ -1,0 +1,35 @@
+.article {
+    max-width: 55%;
+    padding: 16px;
+    margin: 16px 22.5%;
+    background: #fff;
+}
+
+.article .image-container {
+    width: 35%;
+    height: auto;
+}
+
+.article .article-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: #007bff;
+    text-decoration: none;
+    padding: 4px 8px;
+}
+
+.article .article-link:hover {
+    text-decoration: underline;
+}
+
+.article-image {
+    width: 100%;
+    height: auto;
+}
+
+.publication-logo {
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

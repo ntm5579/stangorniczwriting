@@ -1,7 +1,8 @@
-import Nav from './Components/nav'
+import Nav from './Components/Nav.tsx'
 import { articles } from './constants'
 import Article from './Components/Article.tsx'
 import Footer from './Components/Footer'
+import './Components/Article.css'
 
 function PublishedArticles() {
     return (

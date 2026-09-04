@@ -1,4 +1,4 @@
-import Nav from './Components/nav'
+import Nav from './Components/Nav'
 import './App.css'
 import Footer from './Components/Footer'
 
