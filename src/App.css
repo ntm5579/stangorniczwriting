@@ -26,6 +26,9 @@
     .about-me-paragraph {
         width: 80%;
     }
+    .col{
+        flex-direction: column;
+    }
 }
 
 .section {

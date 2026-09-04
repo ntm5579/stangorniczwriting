@@ -3,11 +3,23 @@ import { articles } from './constants'
 import Article from './Components/Article.tsx'
 import Footer from './Components/Footer'
 import './Components/Article.css'
+import { useEffect, useState } from 'react'
 
 function PublishedArticles() {
+      const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    
+      useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+      }, []);
     return (
         <div style={{ backgroundColor: '#FFF8F1' }}>
-            <br></br>
+            {windowWidth >= 900 && <br></br>}
             <br></br>
             <br></br>
 
