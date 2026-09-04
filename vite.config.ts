@@ -9,6 +9,7 @@ export default defineConfig({
   plugins: [
     react(),
     babel({ presets: [reactCompilerPreset()] }),
-    Sitemap({ hostname: 'https://example.com' }),
+    Sitemap({ hostname: 'https://ntm5579.github.io/stangorniczwriting' }),
   ],
+  base: '/stangorniczwriting',
 })

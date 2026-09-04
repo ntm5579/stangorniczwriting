@@ -4,4 +4,4 @@ User-agent: *
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://www.w3schools.com/sitemap.xml
+Sitemap: https://ntm5579.github.io/stangorniczwriting/sitemap.xml
