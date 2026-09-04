@@ -1,11 +1,27 @@
-import { useState } from 'react'
-
+import Nav from './Components/nav'
 import './App.css'
 
 function App() {
 
   return (
     <>
+      <Nav />
+      <img src="" alt="Type Writer" />
+      <div>
+        <img src="" alt="Stan Gornicz" />
+        <h1>Stan Gornicz</h1>
+      </div>
+      <h1>About Me</h1>
+      <p>
+        I've been a writer my whole life. For most of my career, I've been a corporate writer.
+        For the past decade and a half, I've crafted personal essays, which I've published in
+        national publications. I've had the good fortune of being welcomed into several writing
+        groups in New York City where my writing coaches and many accomplished writers,
+        now friends, have helped me shape my ideas into wonderful stories. My proudest
+        accomplishment has been approaching the finish line on my memoir, a collection of
+        family essays. There are surprises, no doubt, and a life-altering realization that the
+        unexpected can be the most joyful outcome.
+      </p>
     </>
   )
 }

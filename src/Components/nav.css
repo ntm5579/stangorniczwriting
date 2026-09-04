@@ -1,0 +1,19 @@
+nav {
+    background-color: #000;
+    width: 100%;
+    display:flex;
+    justify-content: right;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.stan {
+    font-weight: bold;
+    justify-content: left;
+    left: 15px;
+    position: absolute;
+}
