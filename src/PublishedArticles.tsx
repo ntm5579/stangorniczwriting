@@ -3,20 +3,8 @@ import { articles } from './constants'
 import Article from './Components/Article.tsx'
 import Footer from './Components/Footer'
 import './Components/Article.css'
-import { useEffect, useState } from 'react'
 
 function PublishedArticles() {
-      const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    
-      useEffect(() => {
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-        };
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-      }, []);
     return (
         <div className="page-shell" style={{ backgroundColor: '#FFF8F1' }}>
             <Nav currentPage="published-work"/>
@@ -33,6 +21,7 @@ function PublishedArticles() {
                     publicationDate={article.publicationDate}
                 />
             ))}
+            <br />
             <Footer />
         </div>
     )   
