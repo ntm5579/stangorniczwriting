@@ -1,5 +1,6 @@
 import Nav from './Components/nav'
 import './App.css'
+import Footer from './Components/Footer'
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
       <br></br>
       <br></br>
       <div className="section">
-        <img src="" alt="Type Writer" />
+        <img src="src/assets/typewriter.png" alt="Type Writer" />
       </div>
 
       <br></br>
@@ -32,6 +33,8 @@ function App() {
         family essays. There are surprises, no doubt, and a life-altering realization that the
         unexpected can be the most joyful outcome.
       </p>
+      <br></br>
+      <Footer/>
     </>
   )
 }

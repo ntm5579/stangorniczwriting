@@ -1,14 +1,15 @@
 import Nav from './Components/nav'
-import { articles, publications } from './constants'
+import { articles } from './constants'
 import Article from './Components/Article.tsx'
+import Footer from './Components/Footer'
 
 function PublishedArticles() {
     return (
-        <>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
+        <div style={{ backgroundColor: '#FFF8F1' }}>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
 
             <Nav currentPage="published-work" />
             <h1 style={{ textAlign: 'center' }}>Published Articles</h1>
@@ -24,8 +25,9 @@ function PublishedArticles() {
                     publicationDate={article.publicationDate}
                 />
             ))}
-        </>
-    )
+            <Footer />
+        </div>
+    )   
 }
 
 export default PublishedArticles
