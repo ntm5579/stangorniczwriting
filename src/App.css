@@ -9,8 +9,8 @@
     align-items: center;
     gap: 16px;
     margin-bottom: 16px;
-    color: #fff;
-    background-color: #000;
+    color: var(--secondary-text);
+    background-color: var(--secondary-background);
     width: 50%;
     margin: 0 auto;
 }
@@ -24,7 +24,7 @@
 .section {
     height: 40%;
     width: 100%;
-    background-color: #FFF8F1;
+    background-color: var(--primary-accent);
 }
 
 .section img{

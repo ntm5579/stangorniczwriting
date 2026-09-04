@@ -1,5 +1,5 @@
 nav {
-    background-color: #000;
+    background-color: var(--secondary-background);
     display:flex;
     justify-content: space-between;
     position: fixed;
@@ -10,7 +10,7 @@ nav {
 }
 
 .nav-link {
-    color: #fff;
+    color: var(--secondary-text);
     text-decoration: none;
     font-size: 24px;
     padding: 10px;
@@ -26,7 +26,7 @@ nav {
 }
 
 .active {
-    color:#E0BE9A;
+    color: var(--secondary-accent);
 }
 
 .right-nav{
