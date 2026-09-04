@@ -5,8 +5,13 @@ import Article from './Components/Article.tsx'
 function PublishedArticles() {
     return (
         <>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
             <Nav currentPage="published-work" />
-            <h1>Published Articles</h1>
+            <h1 style={{ textAlign: 'center' }}>Published Articles</h1>
             {articles.map((article, index) => (
                 <Article
                     key={index}
