@@ -1,3 +1,28 @@
+import newYorkTimesLogo from './assets/publicationLogos/The New York Times.png';
+import washingtonPostLogo from './assets/publicationLogos/The Washington Post.png';
+import forbesLogo from './assets/publicationLogos/Forbes.png';
+import nextAvenueLogo from './assets/publicationLogos/Next Avenue.png';
+import grownAndFlownLogo from './assets/publicationLogos/Grown and Flown.png';
+import marketWatchLogo from './assets/publicationLogos/Market Watch.png';
+import nashvilleImage from './assets/articleImages/Nashville.webp';
+import partyImage from './assets/articleImages/party.jpg';
+import baseballImage from './assets/articleImages/baseball.jpg';
+import agingImage from './assets/articleImages/aging.jpg';
+import entrepreneurImage from './assets/articleImages/Entrepreneur.jpg';
+import fathersImage from './assets/articleImages/Fathers.png';
+import gazeeboImage from './assets/articleImages/Gazeebo.png';
+import calmImage from './assets/articleImages/Calm.png';
+import dogImage from './assets/articleImages/Dog.png';
+import boomerImage from './assets/articleImages/boomer.png';
+import graduationImage from './assets/articleImages/grad.jpeg';
+import remodelPdf from './assets/articlePdfs/How_to_Find_a_Home_Remodeler_for_Aging_in_Place.pdf';
+import entrepreneurPdf from './assets/articlePdfs/The_Steps_to_Become_an_Entrepreneur_in_Your_50s_or_60s.pdf';
+import fathersPdf from './assets/articlePdfs/Keeping_the_Stories_of_Our_Fathers_Alive.pdf';
+import gazeeboPdf from './assets/articlePdfs/15_Steps_to_Our_Backyard_Paradise.pdf';
+import calmPdf from './assets/articlePdfs/Cooking_Up_Calm_in_a_Time_of_Crisis.pdf';
+import dogPdf from './assets/articlePdfs/The_Gift_of_a_Dog.pdf';
+import boomerPdf from './assets/articlePdfs/Boomer_Job_Seeker.pdf';
+
 class Article {
     image: string;
     title: string;
@@ -32,18 +57,17 @@ class Publication {
 }
 
 const publications: Publication[] = [
-    new Publication("src/assets/publicationLogos/The New York Times.png", "New York Times", 1),
-    new Publication("src/assets/publicationLogos/The Washington Post.png", "Washington Post", 2),
-    new Publication("src/assets/publicationLogos/Forbes.png", "Forbes", 3),
-    new Publication("src/assets/publicationLogos/Next Avenue.png", "Next Avenue", 4),
-    new Publication("src/assets/publicationLogos/Purple Clover.png", "Purple Clover", 5),
-    new Publication("src/assets/publicationLogos/Grown and Flown.png", "Grown and Flown", 6),
-    new Publication("src/assets/publicationLogos/Market Watch.png", "Market Watch", 7),
+    new Publication(newYorkTimesLogo, "New York Times", 1),
+    new Publication(washingtonPostLogo, "Washington Post", 2),
+    new Publication(forbesLogo, "Forbes", 3),
+    new Publication(nextAvenueLogo, "Next Avenue", 4),
+    new Publication(grownAndFlownLogo, "Grown and Flown", 5),
+    new Publication(marketWatchLogo, "Market Watch", 6),
 ];
 
 const articles: Article[] = [
     new Article(
-        "src/assets/articleImages/nashville.webp", 
+        nashvilleImage, 
         "Three Musical Notes, 1848 Miles, and a Lifetime of Memories", 
         "Instead of walking down the aisle, the father of the bride escorted his daughter to her new husband in a road trip to Texas, forging a new special bond.", 
         null, 
@@ -53,7 +77,7 @@ const articles: Article[] = [
         "A father and daughter smiling in front garden and buildings."
     ),
     new Article(
-        "src/assets/articleImages/party.jpg", 
+        partyImage, 
         "How to be the Go-to House", 
         "As a kid, I craved clamor, but my parents cherished serenity over chaos. When I became a parent I wanted to create a welcoming, noisy home.", 
         null, 
@@ -63,7 +87,7 @@ const articles: Article[] = [
         "Ilustrated silhouette of a kids party."
     ),
     new Article(
-        "src/assets/articleImages/baseball.jpg", 
+        baseballImage, 
         "Yankees vs. Red Sox: Learning how to become a two-team family", 
         "During my first visit to the bustling hospital after my son was born, I bounded into the room and proudly planted a tiny Red Sox cap on my newborn's head. When my daughter joined our clan, her first piece of clothing was a sweatshirt emblazoned with the logo of the only team our family had pledged allegiance to for the past two generations.", 
         null, 
@@ -73,70 +97,70 @@ const articles: Article[] = [
         "A boy looking out at a baseball field from the stands."
     ),
     new Article(
-        "src/assets/articleImages/aging.jpg", 
+        agingImage, 
         "Ways to Find a Home Remodeler for Aging in Place", 
         "Why working with a Certified Aging-in-Place Specialist may be helpful", 
-        "src/assets/articlePdfs/How_to_Find_a_Home_Remodeler_for_Aging_in_Place.pdf", 
+        remodelPdf, 
         "https://www.forbes.com/sites/nextavenue/2019/01/23/how-to-find-a-home-remodeler-for-aging-in-place/", 
         publications[2], 
         new Date("2019-01-23"),
         "A tradepersons working in a partially finished kitchen."
         ),
     new Article(
-        "src/assets/articleImages/Entrepreneur.jpg", 
+        entrepreneurImage, 
         "6 Steps To Become A Midlife Entrepreneur", 
         "I was a small business owner building sound systems and providing DJ entertainment. Then, after a decade and a half, I dove into the 9 to 5 corporate world, managing databases, developing websites and creating corporate communications. These days, after a layoff and with my kids almost through college, I've begun my second act as an entrepreneur, using my writing skills to help clients form creative communications strategies.", 
-        "src/assets/articlePdfs/The_Steps_to_Become_an_Entrepreneur_in_Your_50s_or_60s.pdf", 
+        entrepreneurPdf, 
         "https://www.forbes.com/sites/nextavenue/2017/07/06/6-steps-to-become-a-midlife-entrepreneur/#67f531865e03", 
         publications[2], 
         new Date("2017-07-06"),
         "A person sitting with a laptop."
     ),
     new Article(
-        "src/assets/articleImages/Fathers.png", 
+        fathersImage, 
         "Keeping the Stories of Our Fathers Alive", 
         "One was stationed at Pearl Harbor, one spent time in a German labor camp. When they were ready to tell their stories, we made sure to record them.",  
-        "src/assets/articlePdfs/Keeping_the_Stories_of_Our_Fathers_Alive.pdf", 
+        fathersPdf, 
         null,
         publications[3], 
         new Date("2023-05-29"),
         "A picture of two men smiling in front of a house."
     ),
     new Article(
-        "src/assets/articleImages/Gazeebo.png", 
+        gazeeboImage, 
         "15 Steps to Our Backyard Paradise", 
         "When my kids were toddlers, our backyard had a large plastic playhouse, sand box, swing set and Slip 'N Slide. The space burst with vivid colors — bright reds, blues, yellows and greens — like giant flowers in a surreal garden.", 
-        "src/assets/articlePdfs/15_Steps_to_Our_Backyard_Paradise.pdf", 
+        gazeeboPdf, 
         null, 
         publications[3], 
         new Date("2023-07-04"),
         "A gazebo strewn with lights, with a yard in the background with outdoor furniture."
     ),
     new Article(
-        "src/assets/articleImages/Calm.png", 
+        calmImage, 
         "Cooking up Calm in a Time of Crisis", 
         "\"What's for supper tonight?\" my 24-year-old son asked as I stepped out of my car, returning from work. That was when the threat of a virus did not exist, and we were free to move about, meet our friends, shake hands, hug. Back then, sharing the last meal of the day was routine.", 
-        "src/assets/articlePdfs/Cooking_Up_Calm_in_a_Time_of_Crisis.pdf", 
+        calmPdf, 
         null, 
         publications[3], 
         new Date("2020-12-21"),
         "Two men preparing a meal together in a kitchen."
     ),
     new Article(
-        "src/assets/articleImages/Dog.png", 
+        dogImage, 
         "The Gift of a Dog", 
         "Time to open Christmas presents,” I shouted after our family finished our holiday feast. “Penny first.", 
-        "src/assets/articlePdfs/The_Gift_of_a_Dog.pdf", 
+        dogPdf, 
         null, 
         publications[3], 
         new Date("2019-12-24"),
         "A dog sitting on a blanket in front of a Christmas tree."
     ),
     new Article(
-        "src/assets/articleImages/boomer.png", 
+        boomerImage, 
         "A Boomer Job Seeker Resolves to Be Social Media Savvy", 
         "Why he's no longer angry at the Millennial work culture", 
-        "src/assets/articlePdfs/Boomer_Job_Seeker.pdf", 
+        boomerPdf, 
         null, 
         publications[3], 
         new Date("2016-08-03"),
@@ -152,7 +176,7 @@ const articles: Article[] = [
     //     new Date("2018-03-12")),
     //     "A shelf of vinyl records.",
     new Article(
-        "src/assets/articleImages/grad.jpeg", 
+        graduationImage, 
         "College Graduation: My Daughter Will Do it Her Way", 
         "“Dad, I'm not going to my college graduation this spring,” my daughter announced at supper one night. “It's a waste of time and I'm just not doing it.” I stared at her in shock.", 
         null, 
