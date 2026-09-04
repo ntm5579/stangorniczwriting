@@ -32,6 +32,8 @@ function PublishedArticles() {
                     externalLink={article.externalLink}
                     publication={article.publication}
                     publicationDate={article.publicationDate}
+                    sortMode={sortBy}
+                    altText={article.altText}
                 />
             ))}
             <br />

@@ -6,8 +6,9 @@ class Article {
     externalLink: string | null;
     publication: Publication;
     publicationDate: Date;
+    altText: string | null;
 
-    constructor(image: string, title: string, blurb: string, pdfLink: string | null, externalLink: string | null, publication: Publication, publicationDate: Date) {
+    constructor(image: string, title: string, blurb: string, pdfLink: string | null, externalLink: string | null, publication: Publication, publicationDate: Date, altText: string | null) {
         this.image = image;
         this.title = title;
         this.blurb = blurb;
@@ -15,6 +16,7 @@ class Article {
         this.externalLink = externalLink;
         this.publication = publication;
         this.publicationDate = publicationDate;
+        this.altText = altText;
     }
 }
 class Publication {
@@ -47,7 +49,9 @@ const articles: Article[] = [
         null, 
         "https://www.nytimes.com/2021/07/07/style/three-musical-notes-1848-miles-and-a-lifetime-of-memories.html", 
         publications[0], 
-        new Date("2021-07-07")),
+        new Date("2021-07-07"),
+        "A father and daughter smiling in front garden and buildings."
+    ),
     new Article(
         "src/assets/articleImages/party.jpg", 
         "How to be the Go-to House", 
@@ -55,7 +59,9 @@ const articles: Article[] = [
         null, 
         "https://www.nytimes.com/2018/11/02/well/family/how-to-be-the-go-to-house.html", 
         publications[0], 
-        new Date("2018-11-02")),
+        new Date("2018-11-02"),
+        "Ilustrated silhouette of a kids party."
+    ),
     new Article(
         "src/assets/articleImages/baseball.jpg", 
         "Yankees vs. Red Sox: Learning how to become a two-team family", 
@@ -63,7 +69,9 @@ const articles: Article[] = [
         null, 
         "https://www.washingtonpost.com/news/parenting/wp/2017/04/18/yankees-vs-red-sox-learning-how-to-become-a-two-team-family/?noredirect=on&utm_term=.6ff00fe4fcc7", 
         publications[1], 
-        new Date("2017-04-18")),
+        new Date("2017-04-18"),
+        "A boy looking out at a baseball field from the stands."
+    ),
     new Article(
         "src/assets/articleImages/remodel.png", 
         "Ways to Find a Home Remodeler for Aging in Place", 
@@ -71,7 +79,9 @@ const articles: Article[] = [
         "src/assets/articlePdfs/How_to_Find_a_Home_Remodeler_for_Aging_in_Place.pdf", 
         "https://www.forbes.com/sites/nextavenue/2019/01/23/how-to-find-a-home-remodeler-for-aging-in-place/", 
         publications[2], 
-        new Date("2019-01-23")),
+        new Date("2019-01-23"),
+        "A tradepersons working in a partially finished kitchen."
+        ),
     new Article(
         "src/assets/articleImages/Entrepreneur.jpg", 
         "6 Steps To Become A Midlife Entrepreneur", 
@@ -79,7 +89,9 @@ const articles: Article[] = [
         "src/assets/articlePdfs/The_Steps_to_Become_an_Entrepreneur_in_Your_50s_or_60s.pdf", 
         "https://www.forbes.com/sites/nextavenue/2017/07/06/6-steps-to-become-a-midlife-entrepreneur/#67f531865e03", 
         publications[2], 
-        new Date("2017-07-06")),
+        new Date("2017-07-06"),
+        "A person sitting with a laptop."
+    ),
     new Article(
         "src/assets/articleImages/Fathers.png", 
         "Keeping the Stories of Our Fathers Alive", 
@@ -87,7 +99,9 @@ const articles: Article[] = [
         "src/assets/articlePdfs/Keeping_the_Stories_of_Our_Fathers_Alive.pdf", 
         null,
         publications[3], 
-        new Date("2023-05-29")),
+        new Date("2023-05-29"),
+        "A picture of two men smiling in front of a house."
+    ),
     new Article(
         "src/assets/articleImages/Gazeebo.png", 
         "15 Steps to Our Backyard Paradise", 
@@ -95,7 +109,9 @@ const articles: Article[] = [
         "src/assets/articlePdfs/15_Steps_to_Our_Backyard_Paradise.pdf", 
         null, 
         publications[3], 
-        new Date("2023-07-04")),
+        new Date("2023-07-04"),
+        "A gazebo strewn with lights, with a yard in the background with outdoor furniture."
+    ),
     new Article(
         "src/assets/articleImages/Calm.png", 
         "Cooking up Calm in a Time of Crisis", 
@@ -103,7 +119,9 @@ const articles: Article[] = [
         "src/assets/articlePdfs/Cooking_Up_Calm_in_a_Time_of_Crisis.pdf", 
         null, 
         publications[3], 
-        new Date("2020-12-21")),
+        new Date("2020-12-21"),
+        "Two men preparing a meal together in a kitchen."
+    ),
     new Article(
         "src/assets/articleImages/Dog.png", 
         "The Gift of a Dog", 
@@ -111,7 +129,9 @@ const articles: Article[] = [
         "src/assets/articlePdfs/The_Gift_of_a_Dog.pdf", 
         null, 
         publications[3], 
-        new Date("2019-12-24")),
+        new Date("2019-12-24"),
+        "A dog sitting on a blanket in front of a Christmas tree."
+    ),
     new Article(
         "src/assets/articleImages/boomer.png", 
         "A Boomer Job Seeker Resolves to Be Social Media Savvy", 
@@ -119,15 +139,18 @@ const articles: Article[] = [
         "src/assets/articlePdfs/Boomer_Job_Seeker.pdf", 
         null, 
         publications[3], 
-        new Date("2016-08-03")),
-    new Article(
-        "src/assets/articleImages/discs.png", 
-        "The Song Remains the Same", 
-        "????", 
-        null, 
-        null, 
-        publications[4], 
-        new Date("2018-03-12")),
+        new Date("2016-08-03"),
+        "A person typing on a laptop at a desk."
+    ),
+    // new Article(
+    //     "src/assets/articleImages/discs.png", 
+    //     "The Song Remains the Same", 
+    //     "????", 
+    //     null, 
+    //     null, 
+    //     publications[4], 
+    //     new Date("2018-03-12")),
+    //     "A shelf of vinyl records.",
     new Article(
         "src/assets/articleImages/grad.jpeg", 
         "College Graduation: My Daughter Will Do it Her Way", 
@@ -135,7 +158,9 @@ const articles: Article[] = [
         null, 
         "https://grownandflown.com/daughter-her-way-college-graduation/", 
         publications[5], 
-        new Date("2018-03-12")),
+        new Date("2018-03-12"),
+        "A parent taking a picture of their daughter in graduation attire on the stone steps of a building."
+    ),
 ];
 
 const windowWidthThreshold = 900;

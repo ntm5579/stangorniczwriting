@@ -31,7 +31,7 @@ function Nav({ currentPage }: { currentPage: string}) {
           </>
           ) : (
             <div className="nav-mobile-menu">
-              <div className="mobile-menu-header">
+              <div className="mobile-menu-header" style={{ borderBottom: menuOpen ? '1px solid var(--secondary-accent)' : 'none' }}>
                 <button 
                   className="nav-button"
                   onClick={() => {
