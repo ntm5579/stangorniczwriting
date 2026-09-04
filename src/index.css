@@ -34,3 +34,9 @@ body {
     padding-top: calc(var(--nav-height) + 1rem);
     box-sizing: border-box;
 }
+
+@media (max-width: 900px) {
+    .page-shell {
+        padding-top: calc(var(--nav-height) + 0.5rem);
+    }
+}

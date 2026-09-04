@@ -67,3 +67,28 @@
         width: 100%;
     }
 }
+
+.page-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    margin: 0px;
+}
+
+.sort-section {
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.sort-section button {
+    font-size: 16px;
+    padding: 8px 12px;
+    color: var(--secondary-text);
+    background-color: var(--tertiary-accent);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
