@@ -4,7 +4,7 @@ function Article({ image, title, blurb, pdfLink, externalLink, publication, publ
             <img className="publication-logo" src={publication.logo} alt={`${publication.name} logo`} />
             <div className="col">
                 <div className="image-container">
-                    <img src={image} alt={"fix alt text"} />
+                    <img className="article-image" src={image} alt={"fix alt text"} />
                 </div>
                 <div className="article-content">
                     <h2>{title}</h2>
