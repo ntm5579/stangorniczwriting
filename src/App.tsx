@@ -1,6 +1,7 @@
 import Nav from './Components/Nav'
 import './App.css'
 import Footer from './Components/Footer'
+import headshot from './assets/headshot.png'
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
         </div> */}
         <div className="about-me-section">
           <div className="about-me-header">
-            <img style={{height: '25vh'}} src="src/assets/headshot.png" alt="Stan Gornicz" />
+            <img style={{height: '25vh'}} src={headshot} alt="Stan Gornicz" />
             <h1>Stan Gornicz</h1>
           </div>
 
