@@ -6,8 +6,21 @@
 }
 
 .article .image-container {
-    width: 35%;
+    width: 25%;
     height: auto;
+}
+
+.article .article-content {
+    width: 70%;
+    margin-top: 0px;
+}
+
+.article h2{
+    margin: 0px;
+}
+
+.article p {
+    margin-top: 0px;
 }
 
 .article .article-link {
