@@ -1,4 +1,4 @@
-:root{
+:root {
     --primary-background: #fff;
     --secondary-background: #000;
     --primary-text: #000;
@@ -7,6 +7,19 @@
     --secondary-accent: #E0BE9A;
     --tertiary-accent: #706f6f;
     --space: clamp(1rem, 2vw, 1.5rem);
+    --nav-height: 80px;
+}
+
+html,
+body,
+#root {
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+    font-family: 'Martel', Arial, sans-serif;
+    background-color: var(--primary-accent);
 }
 
 .page {
@@ -14,7 +27,10 @@
   gap: var(--space);
 }
 
-body {
-    margin: 0;
-    font-family: 'Martel', Arial, sans-serif;
+.page-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: calc(var(--nav-height) + 1rem);
+    box-sizing: border-box;
 }

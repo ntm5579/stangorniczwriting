@@ -4,6 +4,15 @@
     gap: 16px;
 }
 
+.about-me-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+}
+
 .about-me-header {
     display: flex;
     align-items: center;
@@ -28,6 +37,10 @@
     }
     .col{
         flex-direction: column;
+    }
+    .about-me-section {
+        min-height: auto;
+        padding-bottom: 1rem;
     }
 }
 

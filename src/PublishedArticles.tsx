@@ -18,11 +18,7 @@ function PublishedArticles() {
         };
       }, []);
     return (
-        <div style={{ backgroundColor: '#FFF8F1' }}>
-            {windowWidth >= 900 && <br></br>}
-            <br></br>
-            <br></br>
-
+        <div className="page-shell" style={{ backgroundColor: '#FFF8F1' }}>
             <Nav currentPage="published-work"/>
             <h1 style={{ textAlign: 'center', fontSize: '36px', fontWeight: '800' }}>Published Work</h1>
             {articles.map((article, index) => (
