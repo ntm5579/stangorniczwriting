@@ -1,13 +1,12 @@
 nav {
     background-color: #000;
     display:flex;
-    justify-content: right;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     margin-bottom: 15px;
-    height: 60px;
 }
 
 .nav-link {
@@ -22,13 +21,16 @@ nav {
 
 .stan {
     font-weight: bold;
-    justify-content: left;
-    left: 15px;
-    position: absolute;
+    margin-right: auto;
     font-size: 32px;
     margin: 0px;
 }
 
 .active {
     color:#E0BE9A;
+}
+
+.right-nav{
+    display: inline-flex;
+    gap: 1em;
 }

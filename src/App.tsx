@@ -9,9 +9,8 @@ function App() {
       <Nav currentPage="/" />
       <br></br>
       <br></br>
-      <br></br>
-      <br></br>
       <div className="section">
+        <br></br>
         <img src="src/assets/typewriter.png" alt="Type Writer" />
       </div>
 
