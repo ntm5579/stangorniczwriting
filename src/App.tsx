@@ -16,13 +16,13 @@ function App() {
 
       <br></br>
 
-      <div style={{width: '60%', margin: '0 auto'}} className="about-me-header">
+      <div className="about-me-header">
         <img style={{height: '25vh'}} src="src/assets/headshot.png" alt="Stan Gornicz" />
         <h1>Stan Gornicz</h1>
       </div>
 
       <h1 style={{ justifyContent: 'center', display: 'flex' }}>About Me</h1>
-      <p style={{width: '60%', margin: '0 auto'}}>
+      <p className="about-me-paragraph">
         I've been a writer my whole life. For most of my career, I've been a corporate writer.
         For the past decade and a half, I've crafted personal essays, which I've published in
         national publications. I've had the good fortune of being welcomed into several writing

@@ -10,8 +10,8 @@ function Article({ image, title, blurb, pdfLink, externalLink, publication, publ
                     <h2>{title}</h2>
                     {/* <p>Publication Date: {publicationDate.toDateString()}</p> */}
                     <p>{blurb}</p>
-                    {externalLink && <a className="article-link" target="_blank" href={externalLink}>Read More</a>}
-                    {pdfLink && <a className="article-link" target="_blank" href={pdfLink}>View PDF Here</a>}
+                    {externalLink && <a className="article-link" target="_blank" href={externalLink}><button>Read More</button></a>}
+                    {pdfLink && <a className="article-link" target="_blank" href={pdfLink}><button>View PDF Here</button></a>}
                 </div>
             </div>
         </div>
