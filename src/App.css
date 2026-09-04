@@ -21,6 +21,13 @@
     text-align: center;
 }
 
+@media (max-width: 900px) {
+    .about-me-header,
+    .about-me-paragraph {
+        width: 80%;
+    }
+}
+
 .section {
     height: 40%;
     width: 100%;

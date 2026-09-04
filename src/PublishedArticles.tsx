@@ -11,7 +11,7 @@ function PublishedArticles() {
             <br></br>
             <br></br>
 
-            <Nav currentPage="published-work" />
+            <Nav currentPage="published-work"/>
             <h1 style={{ textAlign: 'center', fontSize: '36px', fontWeight: '800' }}>Published Work</h1>
             {articles.map((article, index) => (
                 <Article

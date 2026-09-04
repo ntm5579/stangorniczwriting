@@ -1,0 +1,35 @@
+.footer {
+    text-align: center;
+    padding: 1em;
+    background: var(--secondary-background);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15%;
+}
+
+.footer p {
+    color: var(--secondary-text);
+    padding: 10px;
+}
+
+.footer a {
+    color: var(--secondary-text);
+}
+
+.organization-logos {
+    display: inline-flex;
+    gap: 1em;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .footer {
+        flex-direction: column;
+        padding: 1em;
+    }
+    .organization-logos {
+        flex-direction: column;
+        margin-top: 1em;
+    }
+}

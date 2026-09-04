@@ -6,6 +6,12 @@
     --primary-accent: #FFF8F1;
     --secondary-accent: #E0BE9A;
     --tertiary-accent: #706f6f;
+    --space: clamp(1rem, 2vw, 1.5rem);
+}
+
+.page {
+  display: grid;
+  gap: var(--space);
 }
 
 body {

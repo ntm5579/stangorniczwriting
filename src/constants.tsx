@@ -106,4 +106,6 @@ const articles: Article[] = [
         new Date("2023-05-29")),
 ];
 
-export { Article, Publication, articles, publications };
+const windowWidthThreshold = 900;
+
+export { Article, Publication, articles, publications, windowWidthThreshold };
