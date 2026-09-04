@@ -1,13 +1,20 @@
-function Article({ logo, image, title, blurb, pdfLink, externalLink }: { logo: string; image: string; title: string; blurb: string; pdfLink: string; externalLink: string }) {
+function Article({ image, title, blurb, pdfLink, externalLink, publication, publicationDate }: { image: string; title: string; blurb: string; pdfLink: string; externalLink: string; publication: { name: string; logo: string }; publicationDate: Date }) {
     return (
-        <div>
-            <img src={logo} alt={`${title} logo`} />
-            <h2>{title}</h2>
-            <p>{blurb}</p>
-            <img src={image} alt={title} />
-            <a href={externalLink}>Read More</a>
-            <a href={pdfLink}>View PDF Here</a>
-            
+        <div className="article">
+            <img className="publication-logo" src={publication.logo} alt={`${publication.name} logo`} />
+            <div className="col">
+                <div className="image-container">
+                    <img src={image} alt={"fix alt text"} />
+                </div>
+                <div className="article-content">
+                    <h2>{title}</h2>
+                    {/* <p>Publication Date: {publicationDate.toDateString()}</p> */}
+                    <p>{blurb}</p>
+                    <a className="article-link" target="_blank" href={externalLink}>Read More</a>
+                    <a className="article-link" target="_blank" href={pdfLink}>View PDF Here</a>
+                    
+                </div>
+            </div>
         </div>
     )
 }

@@ -1,11 +1,24 @@
 import Nav from './Components/nav'
-//import articles object
+import { articles, publications } from './constants'
+import Article from './Components/Article.tsx'
 
 function PublishedArticles() {
     return (
         <>
             <Nav />
             <h1>Published Articles</h1>
+            {articles.map((article, index) => (
+                <Article
+                    key={index}
+                    image={article.image}
+                    title={article.title}
+                    blurb={article.blurb}
+                    pdfLink={article.pdfLink}
+                    externalLink={article.externalLink}
+                    publication={article.publication}
+                    publicationDate={article.publicationDate}
+                />
+            ))}
         </>
     )
 }
