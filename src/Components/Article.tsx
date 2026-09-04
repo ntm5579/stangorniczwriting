@@ -10,7 +10,7 @@ function Article({ image, title, blurb, pdfLink, externalLink, publication, publ
                     <h2>{title}</h2>
                     { sortMode === "date" && <p>Publication Date: {publicationDate.toDateString().split(' ').slice(1).join(' ')}</p> }
                     <p>{blurb}</p>
-                    {externalLink && <a className="article-link" target="_blank" href={externalLink}><button>Read More</button></a>}
+                    {externalLink && <a className="article-link" target="_blank" href={externalLink}><button>Read on {publication.name}</button></a>}
                     {pdfLink && <a className="article-link" target="_blank" href={pdfLink}><button>View PDF Here</button></a>}
                 </div>
             </div>

@@ -73,7 +73,7 @@ const articles: Article[] = [
         "A boy looking out at a baseball field from the stands."
     ),
     new Article(
-        "src/assets/articleImages/remodel.png", 
+        "src/assets/articleImages/aging.jpg", 
         "Ways to Find a Home Remodeler for Aging in Place", 
         "Why working with a Certified Aging-in-Place Specialist may be helpful", 
         "src/assets/articlePdfs/How_to_Find_a_Home_Remodeler_for_Aging_in_Place.pdf", 
