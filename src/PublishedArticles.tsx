@@ -14,12 +14,12 @@ function PublishedArticles() {
             <Nav currentPage="published-work"/>
             <h1 className="page-title">Published Work</h1>
             <div className="sort-section">
-                <p>Sort Articles:</p>
+                <p>Sort Articles by:</p>
                 <button onClick={() => setSortBy('publication')}>
-                    by Publication
+                    Publication
                 </button>
                 <button onClick={() => setSortBy('date')}>
-                    by Date
+                    Date
                 </button>
             </div>
             {(sortBy === 'publication' ? articles : sortedByDate).map((article, index) => (
