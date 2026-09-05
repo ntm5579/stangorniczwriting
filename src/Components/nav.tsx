@@ -30,8 +30,8 @@ function Nav({ currentPage }: { currentPage: string}) {
             </div>
           </>
           ) : (
-            <div className="nav-mobile-menu">
-              <div className="mobile-menu-header" style={{ borderBottom: menuOpen ? '1px solid var(--secondary-accent)' : 'none' }}>
+            <div className={`nav-mobile-menu${menuOpen ? ' menu-open' : ''}`}>
+              <div className="mobile-menu-header">
                 <button 
                   className="nav-button"
                   onClick={() => {
@@ -42,14 +42,12 @@ function Nav({ currentPage }: { currentPage: string}) {
                 </button>
                 <Link className="stan nav-link" to="/">Stan Gornicz</Link>
               </div>
-              {menuOpen && (
-                <div className="mobile-menu">
-                  <div>
-                    <Link className={"nav-link" + (currentPage === "/" ? " active" : "")} to="/">About Me</Link>
-                    <Link className={"nav-link" + (currentPage === "published-work" ? " active" : "")} to="/published-work">Published Work</Link>
-                  </div>
+              <div className="mobile-menu">
+                <div>
+                  <Link className={"nav-link" + (currentPage === "/" ? " active" : "")} to="/">About Me</Link>
+                  <Link className={"nav-link" + (currentPage === "published-work" ? " active" : "")} to="/published-work">Published Work</Link>
                 </div>
-              )}
+              </div>
             </div>
           ) 
         }
