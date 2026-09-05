@@ -33,13 +33,13 @@ function PublishedArticles() {
                     Date
                 </button>
                 <button 
-                    onClick={() => setSortBy('category')}
+                    onClick={() => setSortBy('topic')}
                     style={{ 
-                        color: sortBy === 'category' ? colors.secondaryText : colors.tertiaryAccent,
-                        backgroundColor: sortBy === 'category' ? colors.tertiaryAccent : colors.primaryAccent 
+                        color: sortBy === 'topic' ? colors.secondaryText : colors.tertiaryAccent,
+                        backgroundColor: sortBy === 'topic' ? colors.tertiaryAccent : colors.primaryAccent 
                     }}
                 > 
-                    Category
+                    Topic
                 </button>
             </div>
             {(() => {
@@ -48,8 +48,8 @@ function PublishedArticles() {
                         return articles;
                     case 'date':
                         return [...articles].sort((a, b) => new Date(b.publicationDate).getTime() - new Date(a.publicationDate).getTime());
-                    case 'category':
-                        return [...articles].sort((a, b) => a.category[0].order - b.category[0].order);
+                    case 'topic':
+                        return [...articles].sort((a, b) => a.topic[0].order - b.topic[0].order);
                     default:
                         return articles;
                 }
@@ -65,7 +65,7 @@ function PublishedArticles() {
                     publicationDate={article.publicationDate}
                     sortMode={sortBy}
                     altText={article.altText}
-                    categories={article.category}
+                    topics={article.topic}
                 />
             ))}
             <br />
