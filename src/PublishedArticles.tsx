@@ -8,8 +8,8 @@ import './Components/Article.css'
 type ArticleData = (typeof articles)[number]
 type ArticleMode = 'publication' | 'date' | 'category'
 
-function sortArticles(articles: ArticleData[], sortBy: ArticleMode): ArticleData[] {
-    switch (sortBy) {
+function sortArticles(articles: ArticleData[], sortMethod: ArticleMode): ArticleData[] {
+    switch (sortMethod) {
         case 'publication':
             return articles;
         case 'date':
@@ -35,21 +35,28 @@ function filterArticles(articles: ArticleData[], filter: ArticleMode): ArticleDa
 }
 
 function searchArticles(articles: ArticleData[], query: string): ArticleData[] {
+    const normalizedQuery = query.toLowerCase();
+
     return articles.filter(article => 
-        article.title.toLowerCase().includes(query.toLowerCase()) ||
-        article.blurb.toLowerCase().includes(query.toLowerCase())
+        article.title.toLowerCase().includes(normalizedQuery) ||
+        article.blurb.toLowerCase().includes(normalizedQuery) ||
+        article.publicationDate.toISOString().toLowerCase().includes(normalizedQuery)
     );
 }
 
 function PublishedArticles() {
-    const [sortBy, setSortBy] = useState<ArticleMode>('publication')
-    const [filterBy, setFilterBy] = useState<ArticleMode>('publication')
+    const [sortMethod, setSortMethod] = useState<ArticleMode>('publication')
+    const [filterMethod, setFilterMethod] = useState<ArticleMode>('publication')
     const [searchQuery, setSearchQuery] = useState<string>('')
     const [filteredAndSortedArticles, setFilteredAndSortedArticles] = useState<ArticleData[]>(articles);
 
     useEffect(() => {
-        setFilteredAndSortedArticles(sortArticles(filterArticles(searchArticles(articles, searchQuery), filterBy), sortBy));
-    }, [searchQuery, filterBy, sortBy]);
+        setFilteredAndSortedArticles(sortArticles(filterArticles(searchArticles(articles, searchQuery), filterMethod), sortMethod));
+    }, [searchQuery, filterMethod, sortMethod]);
+
+    useEffect(() => {
+        setSearchQuery('')
+    }, [filterMethod]);
 
     return (
         <div className="page-shell" style={{ backgroundColor: colors.primaryAccent }}>
@@ -58,28 +65,28 @@ function PublishedArticles() {
             <div className="sort-section">
                 <p>Sort Articles by:</p>
                 <button 
-                    onClick={() =>setSortBy('publication')}
+                    onClick={() =>setSortMethod('publication')}
                     style={{ 
-                        color: sortBy === 'publication' ? colors.secondaryText : colors.tertiaryAccent,
-                        backgroundColor: sortBy === 'publication' ? colors.tertiaryAccent : colors.primaryAccent
+                        color: sortMethod === 'publication' ? colors.secondaryText : colors.tertiaryAccent,
+                        backgroundColor: sortMethod === 'publication' ? colors.tertiaryAccent : colors.primaryAccent
                     }}
                 >
                     Publication
                 </button>
                 <button 
-                    onClick={() => setSortBy('date')}
+                    onClick={() => setSortMethod('date')}
                     style={{ 
-                        color: sortBy === 'date' ? colors.secondaryText : colors.tertiaryAccent,
-                        backgroundColor: sortBy === 'date' ? colors.tertiaryAccent : colors.primaryAccent 
+                        color: sortMethod === 'date' ? colors.secondaryText : colors.tertiaryAccent,
+                        backgroundColor: sortMethod === 'date' ? colors.tertiaryAccent : colors.primaryAccent 
                     }}
                 > 
                     Date
                 </button>
                 <button 
-                    onClick={() => setSortBy('category')}
+                    onClick={() => setSortMethod('category')}
                     style={{ 
-                        color: sortBy === 'category' ? colors.secondaryText : colors.tertiaryAccent,
-                        backgroundColor: sortBy === 'category' ? colors.tertiaryAccent : colors.primaryAccent 
+                        color: sortMethod === 'category' ? colors.secondaryText : colors.tertiaryAccent,
+                        backgroundColor: sortMethod === 'category' ? colors.tertiaryAccent : colors.primaryAccent 
                     }}
                 > 
                     Category
@@ -88,33 +95,34 @@ function PublishedArticles() {
             <div className="filter-section">
                 <p>Filter Articles by:</p>
                 <button 
-                    onClick={() =>setFilterBy('publication')}
+                    onClick={() =>setFilterMethod('publication')}
                     style={{ 
-                        color: filterBy === 'publication' ? colors.secondaryText : colors.tertiaryAccent,
-                        backgroundColor: filterBy === 'publication' ? colors.tertiaryAccent : colors.primaryAccent
+                        color: filterMethod === 'publication' ? colors.secondaryText : colors.tertiaryAccent,
+                        backgroundColor: filterMethod === 'publication' ? colors.tertiaryAccent : colors.primaryAccent
                     }}
                 >
                     Publication
                 </button>
                 <button 
-                    onClick={() => setFilterBy('date')}
+                    onClick={() => setFilterMethod('date')}
                     style={{ 
-                        color: filterBy === 'date' ? colors.secondaryText : colors.tertiaryAccent,
-                        backgroundColor: filterBy === 'date' ? colors.tertiaryAccent : colors.primaryAccent 
+                        color: filterMethod === 'date' ? colors.secondaryText : colors.tertiaryAccent,
+                        backgroundColor: filterMethod === 'date' ? colors.tertiaryAccent : colors.primaryAccent 
                     }}
                 > 
                     Date
                 </button>
                 <button 
-                    onClick={() => setFilterBy('category')}
+                    onClick={() => setFilterMethod('category')}
                     style={{ 
-                        color: filterBy === 'category' ? colors.secondaryText : colors.tertiaryAccent,
-                        backgroundColor: filterBy === 'category' ? colors.tertiaryAccent : colors.primaryAccent 
+                        color: filterMethod === 'category' ? colors.secondaryText : colors.tertiaryAccent,
+                        backgroundColor: filterMethod === 'category' ? colors.tertiaryAccent : colors.primaryAccent 
                     }}
                 > 
                     Category
                 </button>
                 <input 
+                    id="article-search"
                     type="text" 
                     placeholder="Search articles..." 
                     value={searchQuery}
@@ -132,7 +140,7 @@ function PublishedArticles() {
                         externalLink={article.externalLink}
                         publication={article.publication}
                         publicationDate={article.publicationDate}
-                        sortMode={sortBy}
+                        sortMode={sortMethod}
                         altText={article.altText}
                         categories={article.category}
                     />

@@ -110,3 +110,13 @@
     border-radius: 4px;
     cursor: pointer;
 }
+
+input {
+    font-family: 'Martel', Arial, sans-serif;
+    font-size: 16px;
+    padding: 4px 8px;
+    color: var(--secondary-text);
+    background-color: var(--primary-accent);
+    border: 3px solid var(--tertiary-accent);
+    border-radius: 4px;
+}
