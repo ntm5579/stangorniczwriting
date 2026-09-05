@@ -209,17 +209,6 @@ const articles: Article[] = [
     //     "A shelf of vinyl records.",
     //     topics[0]
     new Article(
-        graduationImage, 
-        "College Graduation: My Daughter Will Do it Her Way", 
-        "“Dad, I'm not going to my college graduation this spring,” my daughter announced at supper one night. “It's a waste of time and I'm just not doing it.” I stared at her in shock.", 
-        null, 
-        "https://grownandflown.com/daughter-her-way-college-graduation/", 
-        publications[4], 
-        new Date("2018-03-12"),
-        "A parent taking a picture of their daughter in graduation attire on the stone steps of a building.",
-        [topics[0]]
-    ),
-    new Article(
         graduationImage2, 
         "How (the Art of) Negotiation Saved My Daughter's College Graduation", 
         "“Smile!” my wife said, snapping a photo of my daughter and me. Squinting in the afternoon sun, my daughter was dressed in her mortarboard and navy blue gown, long dirty blond hair gently blowing across her face. The click of the shutter marked the finale of a deep and lingering conversation.", 
@@ -230,6 +219,18 @@ const articles: Article[] = [
         "A row of graduates in caps and gowns looking up at a stage.",
         [topics[0]]
     ),
+    new Article(
+        graduationImage, 
+        "College Graduation: My Daughter Will Do it Her Way", 
+        "“Dad, I'm not going to my college graduation this spring,” my daughter announced at supper one night. “It's a waste of time and I'm just not doing it.” I stared at her in shock.", 
+        null, 
+        "https://grownandflown.com/daughter-her-way-college-graduation/", 
+        publications[4], 
+        new Date("2018-03-12"),
+        "A parent taking a picture of their daughter in graduation attire on the stone steps of a building.",
+        [topics[0]]
+    ),
+
 ];
 
 const primaryAccent = '#FFF8F1';
