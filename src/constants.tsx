@@ -4,6 +4,7 @@ import forbesLogo from './assets/publicationLogos/Forbes.png';
 import nextAvenueLogo from './assets/publicationLogos/Next Avenue.png';
 import grownAndFlownLogo from './assets/publicationLogos/Grown and Flown.png';
 import marketWatchLogo from './assets/publicationLogos/Market Watch.png';
+//import purpleCloverLogo from './assets/publicationLogos/Purple Clover.png';
 import nashvilleImage from './assets/articleImages/Nashville.webp';
 import partyImage from './assets/articleImages/party.jpg';
 import baseballImage from './assets/articleImages/baseball.jpg';
@@ -63,6 +64,7 @@ const publications: Publication[] = [
     new Publication(nextAvenueLogo, "Next Avenue", 4),
     new Publication(grownAndFlownLogo, "Grown and Flown", 5),
     new Publication(marketWatchLogo, "Market Watch", 6),
+    //new Publication(purpleCloverLogo, "Purple Clover", 7),
 ];
 
 const articles: Article[] = [
@@ -172,7 +174,7 @@ const articles: Article[] = [
     //     "????", 
     //     null, 
     //     null, 
-    //     publications[4], 
+    //     publications[7], 
     //     new Date("2018-03-12")),
     //     "A shelf of vinyl records.",
     new Article(
@@ -181,12 +183,25 @@ const articles: Article[] = [
         "“Dad, I'm not going to my college graduation this spring,” my daughter announced at supper one night. “It's a waste of time and I'm just not doing it.” I stared at her in shock.", 
         null, 
         "https://grownandflown.com/daughter-her-way-college-graduation/", 
-        publications[5], 
+        publications[4], 
         new Date("2018-03-12"),
         "A parent taking a picture of their daughter in graduation attire on the stone steps of a building."
     ),
 ];
 
+const primaryAccent = '#FFF8F1';
+const secondaryAccent = '#E0BE9A';
+const tertiaryAccent = '#706f6f';
+
+const secondaryText = '#fff';
+
+const colors = {
+    primaryAccent,
+    secondaryAccent,
+    tertiaryAccent,
+    secondaryText
+};
+
 const windowWidthThreshold = 900;
 
-export { Article, Publication, articles, publications, windowWidthThreshold };
+export { Article, Publication, articles, publications, windowWidthThreshold, colors };

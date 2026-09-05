@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Nav from './Components/Nav.tsx'
-import { articles } from './constants'
+import { articles, colors } from './constants'
 import Article from './Components/Article.tsx'
 import Footer from './Components/Footer'
 import './Components/Article.css'
@@ -10,15 +10,27 @@ function PublishedArticles() {
     const sortedByDate= [...articles].sort((a, b) => new Date(b.publicationDate).getTime() - new Date(a.publicationDate).getTime())
 
     return (
-        <div className="page-shell" style={{ backgroundColor: '#FFF8F1' }}>
+        <div className="page-shell" style={{ backgroundColor: colors.primaryAccent }}>
             <Nav currentPage="published-work"/>
             <h1 className="page-title">Published Work</h1>
             <div className="sort-section">
                 <p>Sort Articles by:</p>
-                <button onClick={() => setSortBy('publication')}>
+                <button 
+                    onClick={() =>setSortBy('publication')}
+                    style={{ 
+                        color: sortBy === 'publication' ? colors.tertiaryAccent : colors.secondaryText,
+                        backgroundColor: sortBy === 'publication' ? colors.primaryAccent : colors.tertiaryAccent 
+                    }}
+                >
                     Publication
                 </button>
-                <button onClick={() => setSortBy('date')}>
+                <button 
+                    onClick={() => setSortBy('date')}
+                    style={{ 
+                        color: sortBy === 'date' ? colors.tertiaryAccent : colors.secondaryText,
+                        backgroundColor: sortBy === 'date' ? colors.primaryAccent : colors.tertiaryAccent 
+                    }}
+                > 
                     Date
                 </button>
             </div>
