@@ -16,6 +16,7 @@ import calmImage from './assets/articleImages/Calm.png';
 import dogImage from './assets/articleImages/Dog.png';
 import boomerImage from './assets/articleImages/boomer.png';
 import graduationImage from './assets/articleImages/grad.jpeg';
+import graduationImage2 from './assets/articleImages/graduation-2.jpg';
 import remodelPdf from './assets/articlePdfs/How_to_Find_a_Home_Remodeler_for_Aging_in_Place.pdf';
 import entrepreneurPdf from './assets/articlePdfs/The_Steps_to_Become_an_Entrepreneur_in_Your_50s_or_60s.pdf';
 import fathersPdf from './assets/articlePdfs/Keeping_the_Stories_of_Our_Fathers_Alive.pdf';
@@ -216,6 +217,17 @@ const articles: Article[] = [
         publications[4], 
         new Date("2018-03-12"),
         "A parent taking a picture of their daughter in graduation attire on the stone steps of a building.",
+        [topics[0]]
+    ),
+    new Article(
+        graduationImage2, 
+        "How (the Art of) Negotiation Saved My Daughter's College Graduation", 
+        "“Smile!” my wife said, snapping a photo of my daughter and me. Squinting in the afternoon sun, my daughter was dressed in her mortarboard and navy blue gown, long dirty blond hair gently blowing across her face. The click of the shutter marked the finale of a deep and lingering conversation.", 
+        null, 
+        "https://grownandflown.com/daughters-college-graduation/", 
+        publications[4], 
+        new Date("2019-03-07"),
+        "A row of graduates in caps and gowns looking up at a stage.",
         [topics[0]]
     ),
 ];
