@@ -7,7 +7,7 @@ import './Components/Article.css'
 import {useSearchParams} from 'react-router'
 
 type ArticleData = (typeof articles)[number]
-type ArticleMode = 'publication' | 'date' | 'category'
+type ArticleMode = 'publication' | 'date' | 'topic'
 
 function sortArticles(articles: ArticleData[], sortMethod: ArticleMode): ArticleData[] {
     switch (sortMethod) {
@@ -15,8 +15,8 @@ function sortArticles(articles: ArticleData[], sortMethod: ArticleMode): Article
             return articles;
         case 'date':
             return [...articles].sort((a, b) => new Date(b.publicationDate).getTime() - new Date(a.publicationDate).getTime());
-        case 'category':
-            return [...articles].sort((a, b) => a.category[0].order - b.category[0].order);
+        case 'topic':
+            return [...articles].sort((a, b) => a.topic[0].order - b.topic[0].order);
         default:
             return articles;
     }
@@ -86,13 +86,13 @@ function PublishedArticles() {
                             Date
                         </button>
                         <button
-                            onClick={() => setSortMethod('category')}
+                            onClick={() => setSortMethod('topic')}
                             style={{
-                                color: sortMethod === 'category' ? colors.secondaryText : colors.tertiaryAccent,
-                                backgroundColor: sortMethod === 'category' ? colors.tertiaryAccent : colors.primaryAccent
+                                color: sortMethod === 'topic' ? colors.secondaryText : colors.tertiaryAccent,
+                                backgroundColor: sortMethod === 'topic' ? colors.tertiaryAccent : colors.primaryAccent
                             }}
                         >
-                            Category
+                            Topic
                         </button>
                     </div>
                 </div>
@@ -112,6 +112,7 @@ function PublishedArticles() {
                 filteredAndSortedArticles.length === 0 ? (
                     <div className="no-articles-found">
                         <p>No articles found, try a different search term...</p>
+                        <p>You can search across multiple categories by separating them with spaces.</p>
                     </div>
                 ) : (
                     filteredAndSortedArticles.map((article, index) => (
@@ -125,7 +126,7 @@ function PublishedArticles() {
                             publication={article.publication}
                             publicationDate={article.publicationDate}
                             altText={article.altText}
-                            categories={article.category}
+                            topics={article.topic}
                         />
                     ))
                 )
