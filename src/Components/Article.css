@@ -55,19 +55,6 @@
     margin-right: auto;
 }
 
-@media (max-width: 900px) {
-    .article {
-        max-width: 90%;
-        margin: 16px 5%;
-    }
-    .article .image-container {
-        width: 100%;
-    }
-    .article .article-content {
-        width: 100%;
-    }
-}
-
 .page-title {
     text-align: center;
     font-size: 36px;
@@ -115,8 +102,29 @@ input {
     font-family: 'Martel', Arial, sans-serif;
     font-size: 16px;
     padding: 4px 8px;
-    color: var(--secondary-text);
+    color: var(--tertiary-accent);
     background-color: var(--primary-accent);
     border: 3px solid var(--tertiary-accent);
     border-radius: 4px;
+}
+
+@media (max-width: 900px) {
+    .article {
+        max-width: 90%;
+        margin: 16px 5%;
+    }
+    .article .image-container {
+        width: 100%;
+    }
+    .article .article-content {
+        width: 100%;
+    }
+    .sort-section,
+     .filter-section {
+        display: flex;
+        flex-direction: column;
+    }
+    p{
+        margin-bottom: 0px;
+    }
 }

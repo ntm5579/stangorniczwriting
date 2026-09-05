@@ -63,64 +63,68 @@ function PublishedArticles() {
             <Nav currentPage="published-work"/>
             <h1 className="page-title">Published Work</h1>
             <div className="sort-section">
-                <p>Sort Articles by:</p>
-                <button 
-                    onClick={() =>setSortMethod('publication')}
-                    style={{ 
-                        color: sortMethod === 'publication' ? colors.secondaryText : colors.tertiaryAccent,
-                        backgroundColor: sortMethod === 'publication' ? colors.tertiaryAccent : colors.primaryAccent
-                    }}
-                >
-                    Publication
-                </button>
-                <button 
-                    onClick={() => setSortMethod('date')}
-                    style={{ 
-                        color: sortMethod === 'date' ? colors.secondaryText : colors.tertiaryAccent,
-                        backgroundColor: sortMethod === 'date' ? colors.tertiaryAccent : colors.primaryAccent 
-                    }}
-                > 
-                    Date
-                </button>
-                <button 
-                    onClick={() => setSortMethod('category')}
-                    style={{ 
-                        color: sortMethod === 'category' ? colors.secondaryText : colors.tertiaryAccent,
-                        backgroundColor: sortMethod === 'category' ? colors.tertiaryAccent : colors.primaryAccent 
-                    }}
-                > 
-                    Category
-                </button>
+                <p>Sort by:</p>
+                <div style={{ display: 'flex', flexDirection: 'row', gap: '8px' }}>
+                    <button 
+                        onClick={() =>setSortMethod('publication')}
+                        style={{ 
+                            color: sortMethod === 'publication' ? colors.secondaryText : colors.tertiaryAccent,
+                            backgroundColor: sortMethod === 'publication' ? colors.tertiaryAccent : colors.primaryAccent
+                        }}
+                    >
+                        Publication
+                    </button>
+                    <button 
+                        onClick={() => setSortMethod('date')}
+                        style={{ 
+                            color: sortMethod === 'date' ? colors.secondaryText : colors.tertiaryAccent,
+                            backgroundColor: sortMethod === 'date' ? colors.tertiaryAccent : colors.primaryAccent 
+                        }}
+                    > 
+                        Date
+                    </button>
+                    <button 
+                        onClick={() => setSortMethod('category')}
+                        style={{ 
+                            color: sortMethod === 'category' ? colors.secondaryText : colors.tertiaryAccent,
+                            backgroundColor: sortMethod === 'category' ? colors.tertiaryAccent : colors.primaryAccent 
+                        }}
+                    > 
+                        Category
+                    </button>
+                </div>
             </div>
             <div className="filter-section">
-                <p>Filter Articles by:</p>
-                <button 
-                    onClick={() =>setFilterMethod('publication')}
-                    style={{ 
-                        color: filterMethod === 'publication' ? colors.secondaryText : colors.tertiaryAccent,
-                        backgroundColor: filterMethod === 'publication' ? colors.tertiaryAccent : colors.primaryAccent
-                    }}
-                >
-                    Publication
-                </button>
-                <button 
-                    onClick={() => setFilterMethod('date')}
-                    style={{ 
-                        color: filterMethod === 'date' ? colors.secondaryText : colors.tertiaryAccent,
-                        backgroundColor: filterMethod === 'date' ? colors.tertiaryAccent : colors.primaryAccent 
-                    }}
-                > 
-                    Date
-                </button>
-                <button 
-                    onClick={() => setFilterMethod('category')}
-                    style={{ 
-                        color: filterMethod === 'category' ? colors.secondaryText : colors.tertiaryAccent,
-                        backgroundColor: filterMethod === 'category' ? colors.tertiaryAccent : colors.primaryAccent 
-                    }}
-                > 
-                    Category
-                </button>
+                <p>Filter by:</p>
+                <div>
+                    <button 
+                        onClick={() =>setFilterMethod('publication')}
+                        style={{ 
+                            color: filterMethod === 'publication' ? colors.secondaryText : colors.tertiaryAccent,
+                            backgroundColor: filterMethod === 'publication' ? colors.tertiaryAccent : colors.primaryAccent
+                        }}
+                    >
+                        Publication
+                    </button>
+                    <button 
+                        onClick={() => setFilterMethod('date')}
+                        style={{ 
+                            color: filterMethod === 'date' ? colors.secondaryText : colors.tertiaryAccent,
+                            backgroundColor: filterMethod === 'date' ? colors.tertiaryAccent : colors.primaryAccent 
+                        }}
+                    > 
+                        Date
+                    </button>
+                    <button 
+                        onClick={() => setFilterMethod('category')}
+                        style={{ 
+                            color: filterMethod === 'category' ? colors.secondaryText : colors.tertiaryAccent,
+                            backgroundColor: filterMethod === 'category' ? colors.tertiaryAccent : colors.primaryAccent 
+                        }}
+                    > 
+                        Category
+                    </button>
+                </div>
                 <input 
                     id="article-search"
                     type="text" 
@@ -145,7 +149,7 @@ function PublishedArticles() {
                         categories={article.category}
                     />
                 ))
-            };
+            }
             <br />
             <Footer />
         </div>
