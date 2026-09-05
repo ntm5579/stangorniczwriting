@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import './Nav.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { windowWidthThreshold } from '../constants';
 
 
 function Nav({ currentPage }: { currentPage: string}) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [menuOpen, setMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -17,6 +18,23 @@ function Nav({ currentPage }: { currentPage: string}) {
         window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    if (!menuOpen) {
+      return;
+    }
+
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [menuOpen]);
 
   
   return (
@@ -30,7 +48,7 @@ function Nav({ currentPage }: { currentPage: string}) {
             </div>
           </>
           ) : (
-            <div className={`nav-mobile-menu${menuOpen ? ' menu-open' : ''}`}>
+            <div ref={mobileMenuRef} className={`nav-mobile-menu${menuOpen ? ' menu-open' : ''}`}>
               <div className="mobile-menu-header">
                 <button 
                   className="nav-button"

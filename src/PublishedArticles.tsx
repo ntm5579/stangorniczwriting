@@ -4,6 +4,7 @@ import { articles, colors } from './constants'
 import Article from './Components/Article.tsx'
 import Footer from './Components/Footer'
 import './Components/Article.css'
+import {useSearchParams} from 'react-router'
 
 type ArticleData = (typeof articles)[number]
 type ArticleMode = 'publication' | 'date' | 'category'
@@ -46,18 +47,28 @@ function searchArticles(articles: ArticleData[], query: string): ArticleData[] {
 }
 
 function PublishedArticles() {
-    const [sortMethod, setSortMethod] = useState<ArticleMode>('publication')
-    const [filterMethod, setFilterMethod] = useState<ArticleMode>('publication')
-    const [searchQuery, setSearchQuery] = useState<string>('')
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [sortMethod, setSortMethod] = useState<ArticleMode>(searchParams.get('sort') ? searchParams.get('sort') as ArticleMode : 'publication');
+    const [filterMethod, setFilterMethod] = useState<ArticleMode>(searchParams.get('filter') ? searchParams.get('filter') as ArticleMode : 'publication');
+    const [searchQuery, setSearchQuery] = useState<string>(searchParams.get('search') || '');
     const [filteredAndSortedArticles, setFilteredAndSortedArticles] = useState<ArticleData[]>(articles);
+    
+    useEffect(() => {
+        setSortMethod(searchParams.get('sort') ? searchParams.get('sort') as ArticleMode : 'publication');
+        setFilterMethod(searchParams.get('filter') ? searchParams.get('filter') as ArticleMode : 'publication');
+        setSearchQuery(searchParams.get('search') || '');
+    }, [searchParams]);
 
     useEffect(() => {
         setFilteredAndSortedArticles(sortArticles(filterArticles(searchArticles(articles, searchQuery), filterMethod), sortMethod));
     }, [searchQuery, filterMethod, sortMethod]);
 
     useEffect(() => {
-        setSearchQuery('')
-    }, [filterMethod, sortMethod]);
+        if (sortMethod === "publication" && filterMethod === "publication" && searchQuery === "")
+            setSearchParams();
+        else
+            setSearchParams({ sort: sortMethod, filter: filterMethod, search: searchQuery });
+    }, [filterMethod, sortMethod, searchQuery]);
 
     return (
         <div className="page-shell" style={{ backgroundColor: colors.primaryAccent }}>
@@ -133,7 +144,7 @@ function PublishedArticles() {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />
-                <button onClick={() => setSearchQuery('')}>Clear Search Term</button>
+                <button onClick={() => { setSearchQuery(''); setSearchParams({ sort: sortMethod, filter: filterMethod, search: '' }); }}>Clear Search Term</button>
             </div>
             {
                 filteredAndSortedArticles.length === 0 ? (
