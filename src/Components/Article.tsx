@@ -1,4 +1,4 @@
-function Article({ image, title, blurb, pdfLink, externalLink, publication, publicationDate, sortMode, altText }: { image: string; title: string; blurb: string; pdfLink: string | null; externalLink: string | null; publication: { name: string; logo: string }; publicationDate: Date; sortMode: string; altText: string | null } ) {
+function Article({ image, title, blurb, pdfLink, externalLink, publication, publicationDate, sortMode, altText, categories }: { image: string; title: string; blurb: string; pdfLink: string | null; externalLink: string | null; publication: { name: string; logo: string }; publicationDate: Date; sortMode: string; altText: string | null, categories: { name: string; order: number }[] } ) {
     return (
         <div className="article">
             <img className="publication-logo" src={publication.logo} alt={`${publication.name} logo`} />
@@ -9,6 +9,7 @@ function Article({ image, title, blurb, pdfLink, externalLink, publication, publ
                 <div className="article-content">
                     <h2>{title}</h2>
                     { sortMode === "date" && <p>Publication Date: {publicationDate.toDateString().split(' ').slice(1).join(' ')}</p> }
+                    { sortMode === "category" && <p>Category: {categories.map(category => category.name).join(', ')}</p> }
                     <p>{blurb}</p>
                     {externalLink && <a className="article-link" target="_blank" href={externalLink}><button>Read on {publication.name}</button></a>}
                     {pdfLink && <a className="article-link" target="_blank" href={pdfLink}><button>View PDF Here</button></a>}

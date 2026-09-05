@@ -7,7 +7,6 @@ import './Components/Article.css'
 
 function PublishedArticles() {
     const [sortBy, setSortBy] = useState('publication')
-    const sortedByDate= [...articles].sort((a, b) => new Date(b.publicationDate).getTime() - new Date(a.publicationDate).getTime())
 
     return (
         <div className="page-shell" style={{ backgroundColor: colors.primaryAccent }}>
@@ -18,8 +17,8 @@ function PublishedArticles() {
                 <button 
                     onClick={() =>setSortBy('publication')}
                     style={{ 
-                        color: sortBy === 'publication' ? colors.tertiaryAccent : colors.secondaryText,
-                        backgroundColor: sortBy === 'publication' ? colors.primaryAccent : colors.tertiaryAccent 
+                        color: sortBy === 'publication' ? colors.secondaryText : colors.tertiaryAccent,
+                        backgroundColor: sortBy === 'publication' ? colors.tertiaryAccent : colors.primaryAccent
                     }}
                 >
                     Publication
@@ -27,14 +26,34 @@ function PublishedArticles() {
                 <button 
                     onClick={() => setSortBy('date')}
                     style={{ 
-                        color: sortBy === 'date' ? colors.tertiaryAccent : colors.secondaryText,
-                        backgroundColor: sortBy === 'date' ? colors.primaryAccent : colors.tertiaryAccent 
+                        color: sortBy === 'date' ? colors.secondaryText : colors.tertiaryAccent,
+                        backgroundColor: sortBy === 'date' ? colors.tertiaryAccent : colors.primaryAccent 
                     }}
                 > 
                     Date
                 </button>
+                <button 
+                    onClick={() => setSortBy('category')}
+                    style={{ 
+                        color: sortBy === 'category' ? colors.secondaryText : colors.tertiaryAccent,
+                        backgroundColor: sortBy === 'category' ? colors.tertiaryAccent : colors.primaryAccent 
+                    }}
+                > 
+                    Category
+                </button>
             </div>
-            {(sortBy === 'publication' ? articles : sortedByDate).map((article, index) => (
+            {(() => {
+                switch (sortBy) {
+                    case 'publication':
+                        return articles;
+                    case 'date':
+                        return [...articles].sort((a, b) => new Date(b.publicationDate).getTime() - new Date(a.publicationDate).getTime());
+                    case 'category':
+                        return [...articles].sort((a, b) => a.category[0].order - b.category[0].order);
+                    default:
+                        return articles;
+                }
+            })().map((article, index) => (
                 <Article
                     key={index}
                     image={article.image}
@@ -46,6 +65,7 @@ function PublishedArticles() {
                     publicationDate={article.publicationDate}
                     sortMode={sortBy}
                     altText={article.altText}
+                    categories={article.category}
                 />
             ))}
             <br />

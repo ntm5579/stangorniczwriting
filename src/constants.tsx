@@ -33,8 +33,9 @@ class Article {
     publication: Publication;
     publicationDate: Date;
     altText: string | null;
+    category: Category[];
 
-    constructor(image: string, title: string, blurb: string, pdfLink: string | null, externalLink: string | null, publication: Publication, publicationDate: Date, altText: string | null) {
+    constructor(image: string, title: string, blurb: string, pdfLink: string | null, externalLink: string | null, publication: Publication, publicationDate: Date, altText: string | null, category: Category[]) {
         this.image = image;
         this.title = title;
         this.blurb = blurb;
@@ -43,6 +44,7 @@ class Article {
         this.publication = publication;
         this.publicationDate = publicationDate;
         this.altText = altText;
+        this.category = category;
     }
 }
 class Publication {
@@ -57,6 +59,16 @@ class Publication {
     }
 }
 
+class Category {
+    name: string;
+    order: number;
+
+    constructor(name: string, order: number) {
+        this.name = name;
+        this.order = order;
+    }
+}
+
 const publications: Publication[] = [
     new Publication(newYorkTimesLogo, "New York Times", 1),
     new Publication(washingtonPostLogo, "Washington Post", 2),
@@ -65,6 +77,13 @@ const publications: Publication[] = [
     new Publication(grownAndFlownLogo, "Grown and Flown", 5),
     new Publication(marketWatchLogo, "Market Watch", 6),
     //new Publication(purpleCloverLogo, "Purple Clover", 7),
+];
+
+const categories: Category[] = [
+    new Category("Family", 1),
+    new Category("Home", 2),
+    new Category("Finance and Business", 3),
+    new Category("Misc.", 4),
 ];
 
 const articles: Article[] = [
@@ -76,7 +95,8 @@ const articles: Article[] = [
         "https://www.nytimes.com/2021/07/07/style/three-musical-notes-1848-miles-and-a-lifetime-of-memories.html", 
         publications[0], 
         new Date("2021-07-07"),
-        "A father and daughter smiling in front garden and buildings."
+        "A father and daughter smiling in front garden and buildings.",
+        [categories[0]]
     ),
     new Article(
         partyImage, 
@@ -86,7 +106,8 @@ const articles: Article[] = [
         "https://www.nytimes.com/2018/11/02/well/family/how-to-be-the-go-to-house.html", 
         publications[0], 
         new Date("2018-11-02"),
-        "Ilustrated silhouette of a kids party."
+        "Ilustrated silhouette of a kids party.",
+        [categories[0], categories[1]]
     ),
     new Article(
         baseballImage, 
@@ -96,7 +117,8 @@ const articles: Article[] = [
         "https://www.washingtonpost.com/news/parenting/wp/2017/04/18/yankees-vs-red-sox-learning-how-to-become-a-two-team-family/?noredirect=on&utm_term=.6ff00fe4fcc7", 
         publications[1], 
         new Date("2017-04-18"),
-        "A boy looking out at a baseball field from the stands."
+        "A boy looking out at a baseball field from the stands.",
+        [categories[0]]
     ),
     new Article(
         agingImage, 
@@ -106,7 +128,8 @@ const articles: Article[] = [
         "https://www.forbes.com/sites/nextavenue/2019/01/23/how-to-find-a-home-remodeler-for-aging-in-place/", 
         publications[2], 
         new Date("2019-01-23"),
-        "A tradepersons working in a partially finished kitchen."
+        "A tradepersons working in a partially finished kitchen.",
+        [categories[1]]
         ),
     new Article(
         entrepreneurImage, 
@@ -116,7 +139,8 @@ const articles: Article[] = [
         "https://www.forbes.com/sites/nextavenue/2017/07/06/6-steps-to-become-a-midlife-entrepreneur/#67f531865e03", 
         publications[2], 
         new Date("2017-07-06"),
-        "A person sitting with a laptop."
+        "A person sitting with a laptop.",
+        [categories[2]]
     ),
     new Article(
         fathersImage, 
@@ -126,7 +150,8 @@ const articles: Article[] = [
         null,
         publications[3], 
         new Date("2023-05-29"),
-        "A picture of two men smiling in front of a house."
+        "A picture of two men smiling in front of a house.",
+        [categories[0]]
     ),
     new Article(
         gazeeboImage, 
@@ -136,7 +161,8 @@ const articles: Article[] = [
         null, 
         publications[3], 
         new Date("2023-07-04"),
-        "A gazebo strewn with lights, with a yard in the background with outdoor furniture."
+        "A gazebo strewn with lights, with a yard in the background with outdoor furniture.",
+        [categories[1]]
     ),
     new Article(
         calmImage, 
@@ -146,7 +172,8 @@ const articles: Article[] = [
         null, 
         publications[3], 
         new Date("2020-12-21"),
-        "Two men preparing a meal together in a kitchen."
+        "Two men preparing a meal together in a kitchen.",
+        [categories[1]]
     ),
     new Article(
         dogImage, 
@@ -156,7 +183,8 @@ const articles: Article[] = [
         null, 
         publications[3], 
         new Date("2019-12-24"),
-        "A dog sitting on a blanket in front of a Christmas tree."
+        "A dog sitting on a blanket in front of a Christmas tree.",
+        [categories[0]]
     ),
     new Article(
         boomerImage, 
@@ -166,7 +194,8 @@ const articles: Article[] = [
         null, 
         publications[3], 
         new Date("2016-08-03"),
-        "A person typing on a laptop at a desk."
+        "A person typing on a laptop at a desk.",
+        [categories[2]]
     ),
     // new Article(
     //     "src/assets/articleImages/discs.png", 
@@ -177,6 +206,7 @@ const articles: Article[] = [
     //     publications[7], 
     //     new Date("2018-03-12")),
     //     "A shelf of vinyl records.",
+    //     categories[0]
     new Article(
         graduationImage, 
         "College Graduation: My Daughter Will Do it Her Way", 
@@ -185,7 +215,8 @@ const articles: Article[] = [
         "https://grownandflown.com/daughter-her-way-college-graduation/", 
         publications[4], 
         new Date("2018-03-12"),
-        "A parent taking a picture of their daughter in graduation attire on the stone steps of a building."
+        "A parent taking a picture of their daughter in graduation attire on the stone steps of a building.",
+        [categories[0]]
     ),
 ];
 
@@ -204,4 +235,4 @@ const colors = {
 
 const windowWidthThreshold = 900;
 
-export { Article, Publication, articles, publications, windowWidthThreshold, colors };
+export { Article, Publication, Category, articles, publications, categories, windowWidthThreshold, colors };
