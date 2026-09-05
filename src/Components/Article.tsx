@@ -1,4 +1,4 @@
-function Article({ image, title, blurb, pdfLink, externalLink, publication, publicationDate, sortMode, altText, categories }: { image: string; title: string; blurb: string; pdfLink: string | null; externalLink: string | null; publication: { name: string; logo: string }; publicationDate: Date; sortMode: string; altText: string | null, categories: { name: string; order: number }[] } ) {
+function Article({ image, title, blurb, pdfLink, externalLink, publication, publicationDate, altText, categories }: { image: string; title: string; blurb: string; pdfLink: string | null; externalLink: string | null; publication: { name: string; logo: string }; publicationDate: Date; altText: string | null, categories: { name: string; order: number }[] } ) {
     return (
         <div className="article">
             <img className="publication-logo" src={publication.logo} alt={`${publication.name} logo`} />
