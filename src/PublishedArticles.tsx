@@ -29,6 +29,7 @@ function searchArticles(articles: ArticleData[], query: string): ArticleData[] {
         const searchableText = [
             article.title,
             article.blurb,
+            article.topic.map(t => t.name).join(' '),
             article.publication.name,
             article.publicationDate.toISOString()
         ].join(' ').toLowerCase();
