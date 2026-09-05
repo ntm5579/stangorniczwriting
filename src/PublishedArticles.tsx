@@ -37,9 +37,10 @@ function filterArticles(articles: ArticleData[], filter: ArticleMode): ArticleDa
 function searchArticles(articles: ArticleData[], query: string): ArticleData[] {
     const normalizedQuery = query.toLowerCase();
 
-    return articles.filter(article => 
+    return articles.filter(article =>
         article.title.toLowerCase().includes(normalizedQuery) ||
         article.blurb.toLowerCase().includes(normalizedQuery) ||
+        article.publication.name.toLowerCase().includes(normalizedQuery) ||
         article.publicationDate.toISOString().toLowerCase().includes(normalizedQuery)
     );
 }
@@ -56,40 +57,40 @@ function PublishedArticles() {
 
     useEffect(() => {
         setSearchQuery('')
-    }, [filterMethod]);
+    }, [filterMethod, sortMethod]);
 
     return (
         <div className="page-shell" style={{ backgroundColor: colors.primaryAccent }}>
-            <Nav currentPage="published-work"/>
+            <Nav currentPage="published-work" />
             <h1 className="page-title">Published Work</h1>
             <div className="sort-section">
                 <p>Sort by:</p>
                 <div style={{ display: 'flex', flexDirection: 'row', gap: '8px' }}>
-                    <button 
-                        onClick={() =>setSortMethod('publication')}
-                        style={{ 
+                    <button
+                        onClick={() => setSortMethod('publication')}
+                        style={{
                             color: sortMethod === 'publication' ? colors.secondaryText : colors.tertiaryAccent,
                             backgroundColor: sortMethod === 'publication' ? colors.tertiaryAccent : colors.primaryAccent
                         }}
                     >
                         Publication
                     </button>
-                    <button 
+                    <button
                         onClick={() => setSortMethod('date')}
-                        style={{ 
+                        style={{
                             color: sortMethod === 'date' ? colors.secondaryText : colors.tertiaryAccent,
-                            backgroundColor: sortMethod === 'date' ? colors.tertiaryAccent : colors.primaryAccent 
+                            backgroundColor: sortMethod === 'date' ? colors.tertiaryAccent : colors.primaryAccent
                         }}
-                    > 
+                    >
                         Date
                     </button>
-                    <button 
+                    <button
                         onClick={() => setSortMethod('category')}
-                        style={{ 
+                        style={{
                             color: sortMethod === 'category' ? colors.secondaryText : colors.tertiaryAccent,
-                            backgroundColor: sortMethod === 'category' ? colors.tertiaryAccent : colors.primaryAccent 
+                            backgroundColor: sortMethod === 'category' ? colors.tertiaryAccent : colors.primaryAccent
                         }}
-                    > 
+                    >
                         Category
                     </button>
                 </div>
@@ -97,63 +98,70 @@ function PublishedArticles() {
             <div className="filter-section">
                 <p>Filter by:</p>
                 <div>
-                    <button 
-                        onClick={() =>setFilterMethod('publication')}
-                        style={{ 
+                    <button
+                        onClick={() => setFilterMethod('publication')}
+                        style={{
                             color: filterMethod === 'publication' ? colors.secondaryText : colors.tertiaryAccent,
                             backgroundColor: filterMethod === 'publication' ? colors.tertiaryAccent : colors.primaryAccent
                         }}
                     >
                         Publication
                     </button>
-                    <button 
+                    <button
                         onClick={() => setFilterMethod('date')}
-                        style={{ 
+                        style={{
                             color: filterMethod === 'date' ? colors.secondaryText : colors.tertiaryAccent,
-                            backgroundColor: filterMethod === 'date' ? colors.tertiaryAccent : colors.primaryAccent 
+                            backgroundColor: filterMethod === 'date' ? colors.tertiaryAccent : colors.primaryAccent
                         }}
-                    > 
+                    >
                         Date
                     </button>
-                    <button 
+                    <button
                         onClick={() => setFilterMethod('category')}
-                        style={{ 
+                        style={{
                             color: filterMethod === 'category' ? colors.secondaryText : colors.tertiaryAccent,
-                            backgroundColor: filterMethod === 'category' ? colors.tertiaryAccent : colors.primaryAccent 
+                            backgroundColor: filterMethod === 'category' ? colors.tertiaryAccent : colors.primaryAccent
                         }}
-                    > 
+                    >
                         Category
                     </button>
                 </div>
-                <input 
+                <input
                     id="article-search"
-                    type="text" 
-                    placeholder="Search articles..." 
+                    type="text"
+                    placeholder="Search articles..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />
+                <button onClick={() => setSearchQuery('')}>Clear Search Term</button>
             </div>
             {
-                filteredAndSortedArticles.map((article, index) => (
-                    <Article
-                        key={index}
-                        image={article.image}
-                        title={article.title}
-                        blurb={article.blurb}
-                        pdfLink={article.pdfLink}
-                        externalLink={article.externalLink}
-                        publication={article.publication}
-                        publicationDate={article.publicationDate}
-                        sortMode={sortMethod}
-                        altText={article.altText}
-                        categories={article.category}
-                    />
-                ))
+                filteredAndSortedArticles.length === 0 ? (
+                    <div className="no-articles-found">
+                        <p>No articles found, try a different search term or filter method...</p>
+                    </div>
+                ) : (
+                    filteredAndSortedArticles.map((article, index) => (
+                        <Article
+                            key={index}
+                            image={article.image}
+                            title={article.title}
+                            blurb={article.blurb}
+                            pdfLink={article.pdfLink}
+                            externalLink={article.externalLink}
+                            publication={article.publication}
+                            publicationDate={article.publicationDate}
+                            sortMode={sortMethod}
+                            altText={article.altText}
+                            categories={article.category}
+                        />
+                    ))
+                )
             }
             <br />
             <Footer />
         </div>
-    )   
+    )
 }
 
 export default PublishedArticles

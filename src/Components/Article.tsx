@@ -8,8 +8,7 @@ function Article({ image, title, blurb, pdfLink, externalLink, publication, publ
                 </div>
                 <div className="article-content">
                     <h2>{title}</h2>
-                    { sortMode === "date" && <p>Publication Date: {publicationDate.toDateString().split(' ').slice(1).join(' ')}</p> }
-                    { sortMode === "category" && <p>Category: {categories.map(category => category.name).join(', ')}</p> }
+                    <h4>{publicationDate.toDateString().split(' ').slice(1).join(' ')} &nbsp;|&nbsp; Topics: {categories.map(category => category.name).join(', ')}</h4>
                     <p>{blurb}</p>
                     {externalLink && <a className="article-link" target="_blank" href={externalLink}><button>Read on {publication.name}</button></a>}
                     {pdfLink && <a className="article-link" target="_blank" href={pdfLink}><button>View PDF Here</button></a>}

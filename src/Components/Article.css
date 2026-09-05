@@ -88,7 +88,31 @@
     gap: 8px;
 }
 
+.filter-section > div {
+    display: flex;
+    gap: 8px;
+}
+
 .filter-section button {
+    font-size: 16px;
+    padding: 8px 12px;
+    color: var(--secondary-text);
+    background-color: var(--tertiary-accent);
+    border: 3px solid var(--tertiary-accent);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.no-articles-found{
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+}
+
+.no-articles-found button {
     font-size: 16px;
     padding: 8px 12px;
     color: var(--secondary-text);
@@ -106,6 +130,11 @@ input {
     background-color: var(--primary-accent);
     border: 3px solid var(--tertiary-accent);
     border-radius: 4px;
+}
+
+h4{
+    margin-top: 0px;
+    margin-bottom: 8px;
 }
 
 @media (max-width: 900px) {
